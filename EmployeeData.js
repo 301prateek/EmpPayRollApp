@@ -40,7 +40,10 @@ class EmployeeData{
 
     get startDate() { return this._startDate; }
     set startDate(startDate){
-        this._startDate = startDate;
+        let dateRegex = RegExp('^([0-9]{1,2})([ ])([A-Z]{1})([a-z]{2,10})([ ])(2016|2017|2018|2019|2020)$')
+        if(dateRegex.test(startDate))
+            this._startDate = startDate;
+        else throw 'Date is Incorrect';
     }
     
     toString(){
